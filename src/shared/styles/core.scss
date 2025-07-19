@@ -1,0 +1,17 @@
+@use './typography.scss' as *;
+
+.title {
+  @include header;
+}
+
+.text {
+  @include text;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #222;
+  border-radius: 50%;
+  display: inline-block;
+}

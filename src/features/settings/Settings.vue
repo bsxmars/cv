@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ColorPicker } from '@/entities/cv';
+import { ColorPicker } from '@/shared/ui';
 
 interface Props {
   handleChangeColor: (color: string) => void;

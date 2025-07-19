@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Background, Glass } from '@/entities/cv';
+import { Background, Glass, Profile, Skills, Experience, cv } from '@/entities/cv';
 import { ref } from 'vue';
 import { Settings } from '@/features/settings';
 
@@ -16,7 +16,11 @@ const handleChangeColor = (newColor: string) => {
 
     <Settings :handleChangeColor="handleChangeColor" />
 
-    <Glass> Ваш текст </Glass>
+    <Glass>
+      <Profile />
+      <Skills />
+      <Experience :data="cv.experience" />
+    </Glass>
   </div>
 </template>
 

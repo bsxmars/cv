@@ -1,0 +1,17 @@
+@mixin header {
+  font-family: 'MPLUSRounded Bold';
+  font-weight: 400;
+  font-size: 20px;
+}
+
+@mixin MPLUS_bold {
+  font-family: 'MPLUSRounded Bold';
+  font-weight: 400;
+  font-size: 16px;
+}
+
+@mixin text {
+  font-family: 'MPLUSRounded';
+  font-weight: 400;
+  font-size: 16px;
+}
