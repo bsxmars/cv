@@ -10,7 +10,7 @@
   width: 100%;
   max-width: 700px;
   min-width: 300px;
-  height: 900px;
+  height: 90vh;
   border-radius: 28px;
   overflow: hidden;
   z-index: 10;
