@@ -13,11 +13,20 @@ export interface ISkill {
   level: number;
 }
 
+export interface IContact {
+  type: string;
+  value: string;
+}
+
 export interface IProfile {
   firstname: string;
   lastname: string;
   middlename: string;
   birthday: string;
+  location: string;
+  formatWoks: string;
+  contacts: IContact[];
+  repos: string[];
 }
 
 export interface ICv {

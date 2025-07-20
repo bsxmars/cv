@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { IExperience } from '../types';
+import Container from './Container.vue';
 
 interface Props {
   data: IExperience[];
@@ -9,50 +10,40 @@ defineProps<Props>();
 </script>
 
 <template>
-  <div class="container">
-    <div class="title">Опыт</div>
-
+  <Container title="Опыт">
     <div
       v-for="item of data"
       :key="item.id"
       class="text"
     >
-      <div class="containerBlock">
-        <div class="titleBlock">
-          <div class="dot" />
-          <span>
-            {{ `${item.startDate} - ${item.endDate}: ` }}
-            <span class="companyTitle">{{ item.company }}</span>
-          </span>
-        </div>
+      <div class="titleBlock">
+        <div class="dot" />
+        <span>
+          {{ `${item.startDate} - ${item.endDate}: ` }}
+          <span class="companyTitle">{{ item.company }}</span>
+        </span>
+      </div>
 
-        <div class="containerInfo">
-          <div class="position">{{ item.position }}</div>
-          <div
-            v-for="task of item.responsibilities"
-            :key="task"
-            class="task"
-          >
-            <span>- {{ task }}</span>
-          </div>
+      <div class="containerInfo">
+        <div class="position">{{ item.position }}</div>
+        <div
+          v-for="task of item.responsibilities"
+          :key="task"
+          class="task"
+        >
+          <span>- {{ task }}</span>
         </div>
       </div>
     </div>
-  </div>
+  </Container>
 </template>
 
 <style lang="scss" scoped>
 @use '@/shared/styles' as *;
 
 .container {
-  margin-top: 1rem;
-
   &Info {
     padding-left: 2rem;
-  }
-
-  &Block {
-    padding-left: 1rem;
   }
 }
 
@@ -63,10 +54,6 @@ defineProps<Props>();
 
 .task {
   font-size: 12px;
-}
-
-.title {
-  margin-bottom: 1rem;
 }
 
 .dot {

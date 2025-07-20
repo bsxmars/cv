@@ -6,7 +6,11 @@
 
 @mixin MPLUS_bold {
   font-family: 'MPLUSRounded Bold';
-  font-weight: 400;
+  font-size: 16px;
+}
+
+@mixin MPLUS_medium {
+  font-family: 'MPLUSRounded Medium';
   font-size: 16px;
 }
 

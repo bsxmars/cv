@@ -6,6 +6,19 @@ export const cv: ICv = {
     lastname: 'Крылов',
     middlename: 'Александрович',
     birthday: '21.11.1994',
+    location: 'Mосковская область, Пушкино',
+    formatWoks: 'Удаленно, гибрид',
+    contacts: [
+      {
+        type: 'телефон',
+        value: '+7 977 816 43 58',
+      },
+      {
+        type: 'telegram',
+        value: '@bsx_mars',
+      },
+    ],
+    repos: ['https://github.com/bsxmars'],
   },
   skills: [
     {

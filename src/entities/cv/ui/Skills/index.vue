@@ -1,45 +1,30 @@
 <script setup lang="ts">
+import type { ISkill } from '../../types';
 import Skill from './Skill.vue';
+import Container from '../Container.vue';
 
-const SKILLS = [
-  {
-    id: 1,
-    name: 'React',
-    level: 2,
-  },
-  {
-    id: 2,
-    name: 'Vue',
-    level: 2,
-  },
-  {
-    id: 3,
-    name: 'Next',
-    level: 2,
-  },
-];
+interface Props {
+  data: ISkill[];
+}
+
+defineProps<Props>();
 </script>
 
 <template>
-  <div class="title">Технологии</div>
-  <div class="skills-row">
-    <Skill
-      v-for="skill of SKILLS"
-      :key="skill.id"
-      :level="skill.level"
-      :name="skill.name"
-    />
-  </div>
+  <Container title="Технологии">
+    <div class="skillsRow">
+      <Skill
+        v-for="skill of data"
+        :key="skill.id"
+        :level="skill.level"
+        :name="skill.name"
+      />
+    </div>
+  </Container>
 </template>
 
 <style lang="scss" scoped>
-@use '@/shared/styles' as *;
-
-.title {
-  margin-bottom: 1rem;
-}
-
-.skills-row {
+.skillsRow {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

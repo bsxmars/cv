@@ -17,8 +17,8 @@ const handleChangeColor = (newColor: string) => {
     <Settings :handleChangeColor="handleChangeColor" />
 
     <Glass>
-      <Profile />
-      <Skills />
+      <Profile :data="cv.profile" />
+      <Skills :data="cv.skills" />
       <Experience :data="cv.experience" />
     </Glass>
   </div>
