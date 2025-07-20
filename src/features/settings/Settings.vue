@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { ColorPicker } from '@/shared/ui';
+import { ColorPicker, LanguageSelector } from '@/shared/ui';
+import { ref } from 'vue';
 
 interface Props {
   handleChangeColor: (color: string) => void;
 }
+
+const selectedLanguage = ref('ru');
 
 defineProps<Props>();
 </script>
@@ -14,6 +17,8 @@ defineProps<Props>();
       class="picker"
       @update:color="handleChangeColor"
     />
+
+    <LanguageSelector v-model="selectedLanguage" />
   </div>
 </template>
 
