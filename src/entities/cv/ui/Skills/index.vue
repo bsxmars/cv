@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ISkill } from '../../types';
 import Skill from './Skill.vue';
-import Container from '../Container.vue';
+import { Icon, Tooltip } from '@/shared/ui';
 
 interface Props {
   data: ISkill[];
@@ -11,23 +11,87 @@ defineProps<Props>();
 </script>
 
 <template>
-  <Container title="Технологии">
-    <div class="skillsRow">
-      <Skill
-        v-for="skill of data"
-        :key="skill.id"
-        :level="skill.level"
-        :name="skill.name"
-      />
+  <div class="container">
+    <div class="title">
+      <span>Технологии</span>
+      <Tooltip class="tooltip">
+        <Icon
+          name="info"
+          class="icon"
+          size="20px"
+        />
+        <template #content>
+          <div>
+            <span class="dot" />
+            <span> - знаком поверхностно</span>
+          </div>
+
+          <div>
+            <span class="dot" />
+            <span class="dot" />
+            <span> - знаком, есть опыт работы</span>
+          </div>
+
+          <div>
+            <span class="dot" />
+            <span class="dot" />
+            <span class="dot" />
+            <span> - уверенный опыт владения</span>
+          </div>
+
+          <div>
+            <span class="dot" />
+            <span class="dot" />
+            <span class="dot" />
+            <span class="dot" />
+            <span> - продвинутый опыт владения</span>
+          </div>
+        </template>
+      </Tooltip>
     </div>
-  </Container>
+
+    <div class="content">
+      <div class="skillsRow">
+        <Skill
+          v-for="skill of data"
+          :key="skill.id"
+          :level="skill.level"
+          :name="skill.name"
+        />
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
+@use '@/shared/styles' as *;
+
 .skillsRow {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.75rem;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.content {
+  padding-left: 1rem;
+}
+
+.icon {
+  margin-left: 0.5rem;
+  margin-bottom: 0.125rem;
+  cursor: pointer;
+}
+
+@media print {
+  .tooltip {
+    display: none;
+  }
 }
 </style>

@@ -28,6 +28,7 @@ const dots = computed(() => Array.from({ length: 4 }, (_, i) => i < props.level)
 
 .name {
   @include MPLUS_bold;
+  font-size: 14px;
 }
 
 .block {
@@ -35,7 +36,7 @@ const dots = computed(() => Array.from({ length: 4 }, (_, i) => i < props.level)
   border-radius: 8px;
   display: inline-flex;
   align-items: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.125rem 0.75rem;
   gap: 0.75rem;
 }
 

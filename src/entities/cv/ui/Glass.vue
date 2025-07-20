@@ -16,6 +16,7 @@
   z-index: 10;
   margin-top: 20px;
   padding: 25px;
+  overflow: auto;
   background: rgba(255, 255, 255, 0.25);
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.1),
@@ -28,5 +29,11 @@
 
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
+}
+
+@media print {
+  .glass {
+    height: 96vh;
+  }
 }
 </style>

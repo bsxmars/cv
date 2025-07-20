@@ -14,7 +14,10 @@ const handleChangeColor = (newColor: string) => {
   <div class="page-wrapper">
     <Background :color="color" />
 
-    <Settings :handleChangeColor="handleChangeColor" />
+    <Settings
+      :handleChangeColor="handleChangeColor"
+      class="settings"
+    />
 
     <Glass>
       <Profile :data="cv.profile" />
@@ -40,5 +43,11 @@ const handleChangeColor = (newColor: string) => {
   position: fixed;
   top: 0;
   right: 0;
+}
+
+@media print {
+  .settings {
+    display: none;
+  }
 }
 </style>

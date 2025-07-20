@@ -13,12 +13,14 @@ defineProps<Props>();
 
 <template>
   <div class="settings">
-    <ColorPicker
-      class="picker"
-      @update:color="handleChangeColor"
-    />
+    <div class="container">
+      <LanguageSelector v-model="selectedLanguage" />
 
-    <LanguageSelector v-model="selectedLanguage" />
+      <ColorPicker
+        class="picker"
+        @update:color="handleChangeColor"
+      />
+    </div>
   </div>
 </template>
 
@@ -28,5 +30,14 @@ defineProps<Props>();
   top: 0;
   right: 0;
   padding: 20px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.picker {
+  margin-left: 1rem;
 }
 </style>

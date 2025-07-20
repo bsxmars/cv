@@ -2,11 +2,15 @@
 import { computed } from 'vue';
 
 import Chevron from '@/assets/icons/chevron.svg?raw';
-import TG from '@/assets/icons/tg.svg?raw';
+import TG from '@/assets/icons/telegram.svg?raw';
+import phone from '@/assets/icons/phone.svg?raw';
+import info from '@/assets/icons/info.svg?raw';
 
 const ICON_MAP: Record<string, string> = {
   chevron: Chevron,
   tg: TG,
+  phone,
+  info,
 };
 
 interface Props {

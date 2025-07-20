@@ -1,7 +1,7 @@
 <template>
-  <div class="language-selector">
+  <div class="languageSelector">
     <button
-      class="language-button"
+      class="languageButton"
       @click="toggleLanguage"
     >
       {{ currentLanguage.name }}
@@ -50,11 +50,11 @@ const toggleLanguage = () => {
 
 <style scoped lang="scss">
 .language {
-  &-selector {
+  &Selector {
     display: inline-block;
   }
 
-  &-button {
+  &Button {
     padding: 8px 12px;
     background: #ffffff;
     border: 1px solid #e1e5e9;
@@ -67,7 +67,7 @@ const toggleLanguage = () => {
     min-width: 60px;
 
     &:hover {
-      border-color: #007bff;
+      border-color: black;
       box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
     }
 

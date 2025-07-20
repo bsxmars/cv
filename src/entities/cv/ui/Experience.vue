@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { IExperience } from '../types';
-import Container from './Container.vue';
 
 interface Props {
   data: IExperience[];
@@ -10,50 +9,62 @@ defineProps<Props>();
 </script>
 
 <template>
-  <Container title="Опыт">
-    <div
-      v-for="item of data"
-      :key="item.id"
-      class="text"
-    >
-      <div class="titleBlock">
-        <div class="dot" />
-        <span>
-          {{ `${item.startDate} - ${item.endDate}: ` }}
-          <span class="companyTitle">{{ item.company }}</span>
-        </span>
-      </div>
+  <div class="container">
+    <div class="title">
+      <span>Опыт</span>
+      <slot name="title" />
+    </div>
 
-      <div class="containerInfo">
-        <div class="position">{{ item.position }}</div>
-        <div
-          v-for="task of item.responsibilities"
-          :key="task"
-          class="task"
-        >
-          <span>- {{ task }}</span>
+    <div class="content">
+      <div
+        v-for="item of data"
+        :key="item.id"
+        class="text"
+      >
+        <div class="titleBlock">
+          <div class="dot" />
+          <span>
+            <span>{{ `${item.startDate} - ${item.endDate}: ` }}</span>
+            <span class="companyTitle">{{ item.company }}</span>
+          </span>
+        </div>
+
+        <div class="containerInfo">
+          <div class="position">
+            {{ item.position }}
+          </div>
+          <div
+            v-for="task of item.responsibilities"
+            :key="task"
+            class="task"
+          >
+            <span>- {{ task }}</span>
+          </div>
         </div>
       </div>
     </div>
-  </Container>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 @use '@/shared/styles' as *;
 
 .container {
+  margin-top: 1rem;
+
   &Info {
-    padding-left: 2rem;
+    margin-top: 0.5rem;
   }
 }
 
 .companyTitle {
-  margin-left: 1rem;
+  margin-left: 0.5rem;
   @include MPLUS_bold;
 }
 
 .task {
-  font-size: 12px;
+  font-size: 14px;
+  margin-bottom: 0.125rem;
 }
 
 .dot {
@@ -66,7 +77,21 @@ defineProps<Props>();
 }
 
 .position {
-  margin: 0.5rem 0;
+  margin: 0.25rem 0;
   @include MPLUS_bold;
+}
+
+.title {
+  margin-bottom: 0.5rem;
+}
+
+.content {
+  padding-left: 1rem;
+}
+
+@media print {
+  .task {
+    margin-bottom: 0.5rem;
+  }
 }
 </style>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Icon } from '@/shared/ui';
 import type { IProfile } from '../types';
 
 interface Props {
@@ -40,7 +41,10 @@ defineProps<Props>();
         <div class="label">Контакты:</div>
         <div>
           <div v-for="contact of data.contacts">
-            {{ `${contact.type}: ${contact.value}` }}
+            <div class="contactRow">
+              <Icon :name="contact.type" />
+              {{ `${contact.value}` }}
+            </div>
           </div>
         </div>
       </div>
@@ -57,7 +61,7 @@ defineProps<Props>();
 
     <img
       src="/img/avatar.png"
-      width="250px"
+      width="240px"
     />
   </div>
 </template>
@@ -67,7 +71,7 @@ defineProps<Props>();
 
 .box {
   display: flex;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 
   div {
     margin-right: 0.5rem;
@@ -81,10 +85,16 @@ defineProps<Props>();
 .name {
   @include MPLUS_bold;
   font-size: 26px;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .container {
   display: flex;
+}
+
+.contactRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 </style>
