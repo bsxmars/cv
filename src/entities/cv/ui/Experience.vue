@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { IExperience } from '../types';
+import { useExperienceDate } from '../lib/useExperienceDate';
 
 interface Props {
   data: IExperience[];
@@ -24,7 +25,10 @@ defineProps<Props>();
         <div class="titleBlock">
           <div class="dot" />
           <span>
-            <span>{{ `${item.startDate} - ${item.endDate}: ` }}</span>
+            <span>
+              {{ `${item.startDate} - ${item.endDate || 'по настоящее время'}` }}
+              ({{ useExperienceDate(item.startDate, item.endDate).formattedExperience.value }}):
+            </span>
             <span class="companyTitle">{{ item.company }}</span>
           </span>
         </div>
