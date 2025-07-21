@@ -18,11 +18,11 @@ interface Language {
 }
 
 const props = defineProps<{
-  modelValue: string;
+  lang: string;
 }>();
 
 const emit = defineEmits<{
-  'update:modelValue': [value: string];
+  'update:lang': [value: string];
 }>();
 
 const languages: Language[] = [
@@ -31,20 +31,22 @@ const languages: Language[] = [
     name: 'Рус',
   },
   {
-    code: 'en',
+    code: 'eng',
     name: 'Eng',
   },
 ];
 
 const currentLanguage = computed(() => {
-  return languages.find((lang) => lang.code === props.modelValue) || languages[0];
+  return languages.find((lang) => lang.code === props.lang) || languages[0];
 });
 
 const toggleLanguage = () => {
-  const currentIndex = languages.findIndex((lang) => lang.code === props.modelValue);
+  console.log('props.lang', props.lang);
+
+  const currentIndex = languages.findIndex((lang) => lang.code === props.lang);
   const nextIndex = (currentIndex + 1) % languages.length;
   const nextLanguage = languages[nextIndex];
-  emit('update:modelValue', nextLanguage.code);
+  emit('update:lang', nextLanguage.code);
 };
 </script>
 

@@ -1,6 +1,7 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import '@/shared/styles/reset.scss';
-import '@/shared/styles/fonts.scss';
+import { reactive } from 'vue';
+import { Application } from './app';
+import { Entities } from './entities';
 
-createApp(App).mount('#app');
+const entities = reactive(new Entities());
+const app = new Application(entities);
+app.run();
