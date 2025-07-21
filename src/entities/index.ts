@@ -1,10 +1,9 @@
-import { reactive } from 'vue';
 import { Profile } from './profile/model';
 
 export class Entities {
-  profile: ReturnType<typeof reactive<Profile>>;
+  profile: Profile;
 
   constructor() {
-    this.profile = reactive(new Profile());
+    this.profile = new Profile();
   }
 }

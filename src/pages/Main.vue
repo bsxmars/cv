@@ -1,58 +1,45 @@
 <script setup lang="ts">
 import { useApp } from '@/app';
 import { Background, Glass, Profile, Skills, Experience, cv } from '@/entities/cv';
-import { reactive, ref } from 'vue';
 import { Settings } from '@/features/settings';
 import type { LangType } from '@/shared/types';
 
-const color = ref('#000000');
 const { entities } = useApp();
 
-// selectedLanguage должен быть ref, а не строкой!
-const selectedLanguage = reactive(entities.profile.lang);
+const selectedLanguage = entities.profile.lang;
 const currentColor = entities.profile.color;
-
-console.log('selectedLanguage', selectedLanguage);
 
 const handleChangeColor = (newColor: string) => {
   entities.profile.setCurrentColor(newColor);
 };
 
-const handleLangChange = () => {
-  // Используем .value для получения текущего языка
-  const value = selectedLanguage.value === 'ru' ? 'eng' : 'ru';
-  console.log('handleLangChange value:', value);
+const handleLangChange = (value: string) => {
   entities.profile.setCurrentLang(value as LangType);
-  console.log('entities.profile.lang.value after set:', entities.profile.lang);
 };
 </script>
 
 <template>
-  <div class="page-wrapper">
-    <Background :color="color" />
+  <div class="wrapper">
+    <Background :color="currentColor" />
 
-    {{ selectedLanguage }}
-
-    <button @click="handleLangChange()">111</button>
-
-    <!-- <Settings
+    <Settings
       :handleChangeColor="handleChangeColor"
       :handleLangChange="handleLangChange"
-      :lang="selectedLanguage.value"
-      :color="currentColor.value"
+      :lang="selectedLanguage"
+      :color="currentColor"
       class="settings"
-    /> -->
+    />
 
-    <!-- <Glass>
+    <Glass>
       <Profile :data="cv.profile" />
       <Skills :data="cv.skills" />
       <Experience :data="cv.experience" />
-    </Glass> -->
+    </Glass>
   </div>
 </template>
 
 <style scoped lang="scss">
-.page-wrapper {
+.wrapper {
   position: relative;
   min-height: 100vh;
   display: flex;

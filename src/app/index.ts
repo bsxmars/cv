@@ -6,9 +6,10 @@ import '@/shared/styles/fonts.scss';
 
 export class Application {
   private vueApp: App<Element>;
+  entities: Entities;
 
-  constructor(entities: any) {
-    this.entities = entities;
+  constructor() {
+    this.entities = new Entities();
 
     const vueApp = createApp(WebApp, { app: this });
     this.vueApp = vueApp;

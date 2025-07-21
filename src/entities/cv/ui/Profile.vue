@@ -10,11 +10,12 @@ interface Props {
 defineProps<Props>();
 const { entities } = useApp();
 const titles = entities.profile.titles;
+console.log('titles', titles);
 </script>
 
 <template>
   <div class="container">
-    <div>
+    <div class="containerProfile">
       <div class="name box">
         {{ `${titles.lastname} ${titles.firstname} ${titles.middlename}` }}
       </div>
@@ -93,6 +94,10 @@ const titles = entities.profile.titles;
 
 .container {
   display: flex;
+
+  &Profile {
+    width: 375px;
+  }
 }
 
 .contactRow {

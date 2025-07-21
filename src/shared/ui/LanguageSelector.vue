@@ -41,8 +41,6 @@ const currentLanguage = computed(() => {
 });
 
 const toggleLanguage = () => {
-  console.log('props.lang', props.lang);
-
   const currentIndex = languages.findIndex((lang) => lang.code === props.lang);
   const nextIndex = (currentIndex + 1) % languages.length;
   const nextLanguage = languages[nextIndex];

@@ -1,17 +1,17 @@
-import { reactive, ref, type Ref } from 'vue';
+import { computed, ref } from 'vue';
 import { international } from '@/shared/libs/international';
 import type { LangType } from '@/shared/types';
 
 export class Profile {
-  lang = reactive<LangType>('eng');
+  lang = ref<LangType>('eng');
   color = ref('black');
 
-  get titles() {
-    return international[this.lang];
-  }
+  titles = computed(() => {
+    return international[this.lang.value];
+  });
 
   setCurrentLang(value: LangType) {
-    this.lang = value;
+    this.lang.value = value;
   }
 
   setCurrentColor(color: string) {
