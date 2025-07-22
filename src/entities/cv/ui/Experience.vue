@@ -31,7 +31,7 @@ const titles = entities.profile.titles;
           <span>
             <span>
               {{ `${item.startDate} - ${item.endDate || titles.endDate}` }}
-              ({{ useExperienceDate(item.startDate, item.endDate).formattedExperience.value }}):
+              ({{ useExperienceDate(item.startDate, item.endDate, titles.date).formattedExperience.value }}):
             </span>
             <span class="companyTitle">{{ item.company }}</span>
           </span>

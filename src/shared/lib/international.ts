@@ -1,5 +1,9 @@
 export const international = {
   ru: {
+    date: {
+      year: 'г',
+      month: 'мес',
+    },
     sections: {
       experience: 'Опыт',
       skills: 'Технологии',
@@ -38,6 +42,10 @@ export const international = {
     ],
   },
   eng: {
+    date: {
+      year: 'y',
+      month: 'm',
+    },
     sections: {
       experience: 'Experience',
       skills: 'Technologies',
