@@ -1,6 +1,6 @@
 <template>
   <div
-    class="background-layer"
+    class="backgroundLayer"
     :style="backgroundStyle"
   />
 </template>
@@ -29,7 +29,7 @@ const backgroundStyle = computed(() => ({
 </script>
 
 <style scoped lang="scss">
-.background-layer {
+.backgroundLayer {
   position: absolute;
   width: 100%;
   height: 70%;

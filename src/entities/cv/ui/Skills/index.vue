@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useApp } from '@/app';
 import type { ISkill } from '../../types';
 import Skill from './Skill.vue';
 import { Icon, Tooltip } from '@/shared/ui';
@@ -8,12 +9,14 @@ interface Props {
 }
 
 defineProps<Props>();
+const { entities } = useApp();
+const titles = entities.profile.titles;
 </script>
 
 <template>
   <div class="container">
     <div class="title">
-      <span>Технологии</span>
+      <span>{{ titles.sections.skills }}</span>
       <Tooltip class="tooltip">
         <Icon
           name="info"
@@ -23,28 +26,28 @@ defineProps<Props>();
         <template #content>
           <div>
             <span class="dot" />
-            <span> - знаком поверхностно</span>
+            <span> {{ titles.tooltip.one }}</span>
           </div>
 
           <div>
             <span class="dot" />
             <span class="dot" />
-            <span> - знаком, есть опыт работы</span>
-          </div>
-
-          <div>
-            <span class="dot" />
-            <span class="dot" />
-            <span class="dot" />
-            <span> - уверенный опыт владения</span>
+            <span> {{ titles.tooltip.two }}</span>
           </div>
 
           <div>
             <span class="dot" />
             <span class="dot" />
             <span class="dot" />
+            <span> {{ titles.tooltip.three }}</span>
+          </div>
+
+          <div>
             <span class="dot" />
-            <span> - продвинутый опыт владения</span>
+            <span class="dot" />
+            <span class="dot" />
+            <span class="dot" />
+            <span> {{ titles.tooltip.four }}</span>
           </div>
         </template>
       </Tooltip>

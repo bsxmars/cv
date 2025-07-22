@@ -1,21 +1,32 @@
 <script setup lang="ts">
+import { useApp } from '@/app';
 import { Background, Glass, Profile, Skills, Experience, cv } from '@/entities/cv';
-import { ref } from 'vue';
 import { Settings } from '@/features/settings';
+import type { LangType } from '@/shared/types';
 
-const color = ref('#000000');
+const { entities } = useApp();
+
+const selectedLanguage = entities.profile.lang;
+const currentColor = entities.profile.color;
 
 const handleChangeColor = (newColor: string) => {
-  color.value = newColor;
+  entities.profile.setCurrentColor(newColor);
+};
+
+const handleLangChange = (value: string) => {
+  entities.profile.setCurrentLang(value as LangType);
 };
 </script>
 
 <template>
-  <div class="page-wrapper">
-    <Background :color="color" />
+  <div class="wrapper">
+    <Background :color="currentColor" />
 
     <Settings
       :handleChangeColor="handleChangeColor"
+      :handleLangChange="handleLangChange"
+      :lang="selectedLanguage"
+      :color="currentColor"
       class="settings"
     />
 
@@ -28,7 +39,7 @@ const handleChangeColor = (newColor: string) => {
 </template>
 
 <style scoped lang="scss">
-.page-wrapper {
+.wrapper {
   position: relative;
   min-height: 100vh;
   display: flex;

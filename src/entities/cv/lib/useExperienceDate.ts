@@ -1,7 +1,7 @@
 import { computed } from 'vue';
-import { dayjs } from '@/shared/libs';
+import { dayjs } from '@/shared/lib';
 
-export const useExperienceDate = (startDate: string, endDate?: string) => {
+export const useExperienceDate = (startDate: string, endDate?: string, titles?: { year: string; month: string }) => {
   const getFormattedDate = (date: dayjs.Dayjs) => {
     const years = date.year() - 1970;
     const months = date.month();
@@ -9,10 +9,10 @@ export const useExperienceDate = (startDate: string, endDate?: string) => {
     let result = '';
 
     if (years > 0) {
-      result += `${years} г `;
+      result += `${years} ${titles?.year} `;
     }
     if (months > 0) {
-      result += `${months} мес`;
+      result += `${months} ${titles?.month}`;
     }
     return result.trim();
   };

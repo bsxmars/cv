@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useApp } from '@/app';
 import type { IExperience } from '../types';
 import { useExperienceDate } from '../lib/useExperienceDate';
 
@@ -7,12 +8,15 @@ interface Props {
 }
 
 defineProps<Props>();
+
+const { entities } = useApp();
+const titles = entities.profile.titles;
 </script>
 
 <template>
   <div class="container">
     <div class="title">
-      <span>Опыт</span>
+      <span>{{ titles.sections.experience }}</span>
       <slot name="title" />
     </div>
 
@@ -26,8 +30,8 @@ defineProps<Props>();
           <div class="dot" />
           <span>
             <span>
-              {{ `${item.startDate} - ${item.endDate || 'по настоящее время'}` }}
-              ({{ useExperienceDate(item.startDate, item.endDate).formattedExperience.value }}):
+              {{ `${item.startDate} - ${item.endDate || titles.endDate}` }}
+              ({{ useExperienceDate(item.startDate, item.endDate, titles.date).formattedExperience.value }}):
             </span>
             <span class="companyTitle">{{ item.company }}</span>
           </span>
@@ -38,7 +42,7 @@ defineProps<Props>();
             {{ item.position }}
           </div>
           <div
-            v-for="task of item.responsibilities"
+            v-for="task of titles.responsibilities"
             :key="task"
             class="task"
           >
@@ -68,7 +72,7 @@ defineProps<Props>();
 
 .task {
   font-size: 14px;
-  margin-bottom: 0.125rem;
+  margin-bottom: 0.5rem;
 }
 
 .dot {
@@ -91,11 +95,5 @@ defineProps<Props>();
 
 .content {
   padding-left: 1rem;
-}
-
-@media print {
-  .task {
-    margin-bottom: 0.5rem;
-  }
 }
 </style>

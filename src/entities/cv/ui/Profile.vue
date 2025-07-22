@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useApp } from '@/app';
 import { Icon } from '@/shared/ui';
 import type { IProfile } from '../types';
 
@@ -7,38 +8,41 @@ interface Props {
 }
 
 defineProps<Props>();
+const { entities } = useApp();
+const titles = entities.profile.titles;
+console.log('titles', titles);
 </script>
 
 <template>
   <div class="container">
-    <div>
+    <div class="containerProfile">
       <div class="name box">
-        {{ `${data.lastname} ${data.firstname} ${data.middlename}` }}
+        {{ `${titles.lastname} ${titles.firstname} ${titles.middlename}` }}
       </div>
 
       <div class="text box">
-        <div class="label">Дата рождения:</div>
+        <div class="label">{{ titles.labels.birthday }}</div>
         <div>
           {{ data.birthday }}
         </div>
       </div>
 
       <div class="text box">
-        <div class="label">Локация:</div>
+        <div class="label">{{ titles.labels.location }}</div>
         <div>
-          {{ data.location }}
+          {{ titles.location }}
         </div>
       </div>
 
       <div class="text box">
-        <div class="label">Формат работы:</div>
+        <div class="label">{{ titles.labels.formatFork }}</div>
         <div>
-          {{ data.formatWoks }}
+          {{ titles.formatWoks }}
         </div>
       </div>
 
       <div class="text box">
-        <div class="label">Контакты:</div>
+        <div class="label">{{ titles.labels.contacts }}</div>
         <div>
           <div v-for="contact of data.contacts">
             <div class="contactRow">
@@ -50,7 +54,7 @@ defineProps<Props>();
       </div>
 
       <div class="text box">
-        <div class="label">Репозитории:</div>
+        <div class="label">{{ titles.labels.repository }}</div>
         <div>
           <div v-for="repo of data.repos">
             {{ `${repo}` }}
@@ -90,6 +94,10 @@ defineProps<Props>();
 
 .container {
   display: flex;
+
+  &Profile {
+    width: 375px;
+  }
 }
 
 .contactRow {

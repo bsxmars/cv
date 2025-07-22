@@ -1,6 +1,4 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import '@/shared/styles/reset.scss';
-import '@/shared/styles/fonts.scss';
+import { Application } from './app';
 
-createApp(App).mount('#app');
+const app = new Application();
+app.run();
