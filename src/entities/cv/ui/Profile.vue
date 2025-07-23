@@ -10,7 +10,6 @@ interface Props {
 defineProps<Props>();
 const { entities } = useApp();
 const titles = entities.profile.titles;
-console.log('titles', titles);
 </script>
 
 <template>
@@ -18,13 +17,6 @@ console.log('titles', titles);
     <div class="containerProfile">
       <div class="name box">
         {{ `${titles.lastname} ${titles.firstname} ${titles.middlename}` }}
-      </div>
-
-      <div class="text box">
-        <div class="label">{{ titles.labels.birthday }}</div>
-        <div>
-          {{ data.birthday }}
-        </div>
       </div>
 
       <div class="text box">
@@ -47,7 +39,12 @@ console.log('titles', titles);
           <div v-for="contact of data.contacts">
             <div class="contactRow">
               <Icon :name="contact.type" />
-              {{ `${contact.value}` }}
+              <div v-if="contact.type === 'tg'">
+                <div v-html="contact.value" />
+              </div>
+              <div v-else>
+                {{ `${contact.value}` }}
+              </div>
             </div>
           </div>
         </div>
@@ -57,7 +54,7 @@ console.log('titles', titles);
         <div class="label">{{ titles.labels.repository }}</div>
         <div>
           <div v-for="repo of data.repos">
-            {{ `${repo}` }}
+            <a :href="repo">{{ repo }}</a>
           </div>
         </div>
       </div>
@@ -65,7 +62,9 @@ console.log('titles', titles);
 
     <img
       src="/img/avatar.png"
-      width="240px"
+      width="200px"
+      height="200px"
+      class="img"
     />
   </div>
 </template>
@@ -94,15 +93,32 @@ console.log('titles', titles);
 
 .container {
   display: flex;
-
-  &Profile {
-    width: 375px;
-  }
+  justify-content: space-between;
 }
 
 .contactRow {
   display: flex;
   align-items: center;
   gap: 6px;
+}
+
+@media (max-width: 700px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img {
+    order: 1;
+  }
+
+  .containerProfile {
+    order: 2;
+  }
+
+  .name {
+    font-size: 22px;
+  }
 }
 </style>

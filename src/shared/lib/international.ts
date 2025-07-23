@@ -9,7 +9,7 @@ export const international = {
       skills: 'Технологии',
     },
     labels: {
-      birthday: 'Дата рождения:',
+      age: 'Лет:',
       location: 'Локация:',
       formatFork: 'Формат работы:',
       contacts: 'Контакты:',
@@ -51,7 +51,7 @@ export const international = {
       skills: 'Technologies',
     },
     labels: {
-      birthday: 'Birthday:',
+      age: 'Age:',
       location: 'Location:',
       formatFork: 'Work format:',
       contacts: 'Contacts:',

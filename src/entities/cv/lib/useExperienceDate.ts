@@ -18,8 +18,8 @@ export const useExperienceDate = (startDate: string, endDate?: string, titles?: 
   };
 
   const formattedExperience = computed(() => {
-    const start = dayjs(startDate, 'DD.MM.YYYY');
-    const end = endDate ? dayjs(endDate, 'DD.MM.YYYY') : dayjs();
+    const start = dayjs(startDate, 'MM.YYYY');
+    const end = endDate ? dayjs(endDate, 'MM.YYYY') : dayjs();
 
     const diff = end.diff(start);
     const diffDate = dayjs(diff);

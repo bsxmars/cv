@@ -16,6 +16,7 @@ defineProps<Props>();
   <div class="settings">
     <div class="container">
       <LanguageSelector
+        class="lang"
         :lang="lang"
         @update:lang="handleLangChange"
       />
@@ -44,5 +45,16 @@ defineProps<Props>();
 
 .picker {
   margin-left: 1rem;
+}
+
+@media (max-width: 700px) {
+  .picker {
+    display: none;
+  }
+
+  .settings {
+    z-index: 100;
+    position: absolute;
+  }
 }
 </style>

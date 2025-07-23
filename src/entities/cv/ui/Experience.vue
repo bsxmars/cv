@@ -90,10 +90,21 @@ const titles = entities.profile.titles;
 }
 
 .title {
+  margin-top: 1rem;
   margin-bottom: 0.5rem;
 }
 
 .content {
   padding-left: 1rem;
+}
+
+@media (max-width: 700px) {
+  .content {
+    padding-left: 0;
+  }
+
+  .task {
+    font-size: 13px;
+  }
 }
 </style>

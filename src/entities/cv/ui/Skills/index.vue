@@ -79,6 +79,7 @@ const titles = entities.profile.titles;
 .title {
   display: flex;
   align-items: center;
+  margin-top: 1rem;
   margin-bottom: 0.5rem;
 }
 
@@ -95,6 +96,12 @@ const titles = entities.profile.titles;
 @media print {
   .tooltip {
     display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .content {
+    padding-left: 0;
   }
 }
 </style>

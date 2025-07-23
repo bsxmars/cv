@@ -61,4 +61,10 @@ const handleLangChange = (value: string) => {
     display: none;
   }
 }
+
+@media (max-width: 700px) {
+  .wrapper {
+    padding-top: 0;
+  }
+}
 </style>

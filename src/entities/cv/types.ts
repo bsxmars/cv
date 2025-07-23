@@ -22,7 +22,6 @@ export interface IProfile {
   firstname: string;
   lastname: string;
   middlename: string;
-  birthday: string;
   location: string;
   formatWoks: string;
   contacts: IContact[];

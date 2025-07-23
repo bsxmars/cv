@@ -5,7 +5,6 @@ export const cv: ICv = {
     firstname: 'Иван',
     lastname: 'Крылов',
     middlename: 'Александрович',
-    birthday: '21.11.1994',
     location: 'Mосковская область, Пушкино',
     formatWoks: 'Удаленно, гибрид',
     contacts: [
@@ -15,17 +14,12 @@ export const cv: ICv = {
       },
       {
         type: 'tg',
-        value: '@bsx_mars',
+        value: '<a href="https://t.me/bsx_mars">@bsx_mars</a>',
       },
     ],
     repos: ['https://github.com/bsxmars'],
   },
   skills: [
-    {
-      id: 1,
-      name: 'javascript',
-      level: 3,
-    },
     {
       id: 2,
       name: 'vue',
@@ -47,9 +41,24 @@ export const cv: ICv = {
       level: 1,
     },
     {
+      id: 8,
+      name: 'node',
+      level: 2,
+    },
+    {
+      id: 14,
+      name: 'git',
+      level: 3,
+    },
+    {
       id: 6,
       name: 'typescript',
       level: 2,
+    },
+    {
+      id: 1,
+      name: 'javascript',
+      level: 3,
     },
     {
       id: 7,
@@ -59,11 +68,6 @@ export const cv: ICv = {
     {
       id: 7,
       name: 'd3.js',
-      level: 2,
-    },
-    {
-      id: 8,
-      name: 'node',
       level: 2,
     },
     {
@@ -92,11 +96,6 @@ export const cv: ICv = {
       level: 1,
     },
     {
-      id: 14,
-      name: 'git',
-      level: 3,
-    },
-    {
       id: 15,
       name: 'npm/yarn',
       level: 3,
@@ -120,7 +119,7 @@ export const cv: ICv = {
   experience: [
     {
       id: 1,
-      startDate: '19.05.2021',
+      startDate: '05.2021',
       endDate: '',
       position: 'Frontend developer',
       company: 'UBIC Technologies',

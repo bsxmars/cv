@@ -36,4 +36,12 @@
     height: 96vh;
   }
 }
+
+@media (max-width: 700px) {
+  .glass {
+    height: 100%;
+    margin-top: 0;
+    padding: 10px;
+  }
+}
 </style>
